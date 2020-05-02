@@ -186,7 +186,8 @@ public class Control {
 			g.drawString("Board and Brew", 5, 440);
 			g.drawString("Mr. M's House", 590, 440);
 		}
-
+		
+		//added new collision method 
 		public void checkWallCollision(Person p) {
 			Wall[] walls = {Vertical1, Horizontal1, Vertical2, Horizontal2, Vertical3, Horizontal3, Vertical4, Horizontal4};
 			Rectangle[] r = {Vertical1.getBounds(), Horizontal1.getBounds(), Vertical2.getBounds(), Horizontal2.getBounds(),
