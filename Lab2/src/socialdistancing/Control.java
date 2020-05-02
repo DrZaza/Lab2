@@ -22,12 +22,12 @@ public class Control {
 		protected Wall vWall3 = new Wall(550, 400, "src/SocialDistancingImages/wall2.png", true);
 		protected Wall vWall4 = new Wall(200, 400, "src/SocialDistancingImages/wall2.png", true);
 		
-		protected Wall hWall1 = new Wall(620, 160, "src/SocialDistancingImages/wall1.png", false);
-		protected Wall hWall2 = new Wall(-25, 160, "src/SocialDistancingImages/wall1.png", false);
-		protected Wall hWall3 = new Wall(620, 400, "src/SocialDistancingImages/wall1.png", false);
-		protected Wall hWall4 = new Wall(-25, 400, "src/SocialDistancingImages/wall1.png", false);
+		protected Wall block1 = new Wall(620, 160, "src/SocialDistancingImages/wall1.png", false);
+		protected Wall block2 = new Wall(-25, 160, "src/SocialDistancingImages/wall1.png", false);
+		protected Wall block3 = new Wall(620, 400, "src/SocialDistancingImages/wall1.png", false);
+		protected Wall block4 = new Wall(-25, 400, "src/SocialDistancingImages/wall1.png", false);
 		
-		private Wall[] w = {vWall1, vWall2, vWall3, vWall4, hWall1, hWall2, hWall3, hWall4};
+		private Wall[] w = {vWall1, vWall2, vWall3, vWall4, block1, block2, block3, block4};
 		
 		// simulation control values
 		public int  numPeople;			
@@ -182,9 +182,9 @@ public class Control {
 		}
 
 		public void checkWallCollision(Person p) {
-			Wall[] walls = {vWall1, hWall1, vWall2, hWall2, vWall3, hWall3, vWall4, hWall4};
-			Rectangle[] r = {vWall1.getBounds(), hWall1.getBounds(), vWall2.getBounds(), hWall2.getBounds(),
-					vWall3.getBounds(), hWall3.getBounds(), vWall4.getBounds(), hWall4.getBounds()};
+			Wall[] walls = {vWall1, block1, vWall2, block2, vWall3, block3, vWall4, block4};
+			Rectangle[] r = {vWall1.getBounds(), block1.getBounds(), vWall2.getBounds(), block2.getBounds(),
+					vWall3.getBounds(), block3.getBounds(), vWall4.getBounds(), block4.getBounds()};
 			Rectangle rect1 = new Rectangle(p.x,p.y, p.width, p.height);
 			for(int i = 0; i < walls.length;i++)
 			{
