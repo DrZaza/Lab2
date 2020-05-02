@@ -17,14 +17,14 @@ public class Control {
 		public int numInfected = 0;
 		public int numDied= 0;
 		
-		public Wall Vertical1 = new Wall(550, 0, "src/SocialDistancingImages/wall2.png", true);
-		public Wall Vertical2 = new Wall(200, 0, "src/SocialDistancingImages/wall2.png", true);
-		public Wall Vertical3 = new Wall(550, 400, "src/SocialDistancingImages/wall2.png", true);
-		public Wall Vertical4 = new Wall(200, 400, "src/SocialDistancingImages/wall2.png", true);
-		public Wall Horizontal1 = new Wall(620, 160, "src/SocialDistancingImages/wall1.png", false);
-		public Wall Horizontal2 = new Wall(-25, 160, "src/SocialDistancingImages/wall1.png", false);
-		public Wall Horizontal3 = new Wall(620, 400, "src/SocialDistancingImages/wall1.png", false);
-		public Wall Horizontal4 = new Wall(-25, 400, "src/SocialDistancingImages/wall1.png", false);
+		protected Wall Vertical1 = new Wall(600, 0, "src/SocialDistancingImages/wall2.png", true);
+		protected Wall Vertical2 = new Wall(200, 0, "src/SocialDistancingImages/wall2.png", true);
+		protected Wall Vertical3 = new Wall(550, 400, "src/SocialDistancingImages/wall2.png", true);
+		protected Wall Vertical4 = new Wall(200, 400, "src/SocialDistancingImages/wall2.png", true);
+		protected Wall Horizontal1 = new Wall(620, 160, "src/SocialDistancingImages/wall1.png", false);
+		protected Wall Horizontal2 = new Wall(-25, 160, "src/SocialDistancingImages/wall1.png", false);
+		protected Wall Horizontal3 = new Wall(620, 400, "src/SocialDistancingImages/wall1.png", false);
+		protected Wall Horizontal4 = new Wall(-25, 400, "src/SocialDistancingImages/wall1.png", false);
 		
 		private Wall[] w = {Vertical1, Vertical2, Vertical3, Vertical4, Horizontal1, Horizontal2, Horizontal3, Horizontal4};
 		
