@@ -14,9 +14,11 @@ public class Control {
 		ArrayList<Person> model; //the community of Person objects	
 		
 		// counters for "this" simulation instance
+		
 		public int numInfected = 0;
 		public int numDied= 0;
 		
+		//adding dimensions to create the walls 
 		protected Wall Vertical1 = new Wall(600, 0, "src/SocialDistancingImages/wall2.png", true);
 		protected Wall Vertical2 = new Wall(200, 0, "src/SocialDistancingImages/wall2.png", true);
 		protected Wall Vertical3 = new Wall(550, 400, "src/SocialDistancingImages/wall2.png", true);
@@ -28,22 +30,26 @@ public class Control {
 		
 		private Wall[] w = {Vertical1, Vertical2, Vertical3, Vertical4, Horizontal1, Horizontal2, Horizontal3, Horizontal4};
 		
-		// simulation control values
+		//simulation control values
 		public int  numPeople;			
 		public double toRoam;			    
 		public double toBeInfected;		
 		public double toDie;				
 		public int sickTimeLow;			
 		public int sickTimeMax;
+		
 		//frame extents
 		public int frameX;
 		public int frameY;
+		
 		//position extents, keep objects away from the edges
 		public int xExt;
 		public int yExt;
+		
 		//oval size, represents person in frame
 		public int OvalW;	//Height
 		public int OvalH;	//Width
+		
 		//refresh timer, also used to calculate time/age of infection
 		public int timerValue;
 	
@@ -59,6 +65,7 @@ public class Control {
 			toDie = Settings.sToDie;				
 			sickTimeLow = Settings.sSickTimeLow;			
 			sickTimeMax = Settings.sSickTimeMax;
+			
 			//frame extents
 			frameX = Settings.sFrameX;
 			frameY = Settings.sFrameY;
@@ -125,40 +132,40 @@ public class Control {
 		 * Call Back method for View
 		 * paints/repaints model of graphic objects repressing person objects in the frame 
 		 */
-		public void paintPersons(Graphics gDot1) {
+		public void paintPersons(Graphics graphicsPeople1) {
 			
 			//find the Person in the Model!
 			int index = 0;
-			for(Person pDot1: model) {
-				for(Person pDot2: model) {
+			for(Person Dot1: model) {
+				for(Person Dot2: model) {
 					//for each unique pair invoke the collision detection code
-					pDot1.collisionDetector(pDot2);
+					Dot1.collisionDetector(Dot2);
 				}
-				checkWallCollision(pDot1);
-				pDot1.healthManager(); //manage health values of the Person
-				pDot1.velocityManager(); //manage social distancing and/or roaming values of the Person
+				checkWallCollision(Dot1);
+				Dot1.healthManager(); //manage health values of the Person
+				Dot1.velocityManager(); //manage social distancing and/or roaming values of the Person
 				
 				//set the color of the for the person oval based on the health status of person object
-				switch(pDot1.state) {
+				switch(Dot1.state) {
 					case candidate:
-						gDot1.setColor(Color.LIGHT_GRAY);
+						graphicsPeople1.setColor(Color.LIGHT_GRAY);
 						break;
 					case infected:
-						gDot1.setColor(Color.red);
+						graphicsPeople1.setColor(Color.red);
 						break;
 					case recovered:
-						gDot1.setColor(Color.green);
+						graphicsPeople1.setColor(Color.green);
 						break;
 					case died:
-						gDot1.setColor(Color.black);
+						graphicsPeople1.setColor(Color.black);
 						
 				}
 				
 				//draw the person oval in the simulation frame
-				gDot1.fillOval(pDot1.x, pDot1.y, OvalW, OvalH);
+				graphicsPeople1.fillOval(Dot1.x, Dot1.y, OvalW, OvalH);
 				
 				// draw the person oval in meter/bar indicator
-				gDot1.fillOval((frameX-(int)(frameX*.02)), (int)(frameY-((numPeople-index)*OvalH)/1.67), OvalW, OvalH);
+				graphicsPeople1.fillOval((frameX-(int)(frameX*.02)), (int)(frameY-((numPeople-index)*OvalH)/1.67), OvalW, OvalH);
 				index++;
 				
 			}
