@@ -17,17 +17,16 @@ public class Control {
 		public int numInfected = 0;
 		public int numDied= 0;
 		
-		protected Wall vWall1 = new Wall(550, 0, "src/SocialDistancingImages/wall2.png", true);
-		protected Wall vWall2 = new Wall(200, 0, "src/SocialDistancingImages/wall2.png", true);
-		protected Wall vWall3 = new Wall(550, 400, "src/SocialDistancingImages/wall2.png", true);
-		protected Wall vWall4 = new Wall(200, 400, "src/SocialDistancingImages/wall2.png", true);
+		public Wall Vertical1 = new Wall(550, 0, "src/SocialDistancingImages/wall2.png", true);
+		public Wall Vertical2 = new Wall(200, 0, "src/SocialDistancingImages/wall2.png", true);
+		public Wall Vertical3 = new Wall(550, 400, "src/SocialDistancingImages/wall2.png", true);
+		public Wall Vertical4 = new Wall(200, 400, "src/SocialDistancingImages/wall2.png", true);
+		public Wall Horizontal1 = new Wall(620, 160, "src/SocialDistancingImages/wall1.png", false);
+		public Wall Horizontal2 = new Wall(-25, 160, "src/SocialDistancingImages/wall1.png", false);
+		public Wall Horizontal3 = new Wall(620, 400, "src/SocialDistancingImages/wall1.png", false);
+		public Wall Horizontal4 = new Wall(-25, 400, "src/SocialDistancingImages/wall1.png", false);
 		
-		protected Wall block1 = new Wall(620, 160, "src/SocialDistancingImages/wall1.png", false);
-		protected Wall block2 = new Wall(-25, 160, "src/SocialDistancingImages/wall1.png", false);
-		protected Wall block3 = new Wall(620, 400, "src/SocialDistancingImages/wall1.png", false);
-		protected Wall block4 = new Wall(-25, 400, "src/SocialDistancingImages/wall1.png", false);
-		
-		private Wall[] w = {vWall1, vWall2, vWall3, vWall4, block1, block2, block3, block4};
+		private Wall[] w = {Vertical1, Vertical2, Vertical3, Vertical4, Horizontal1, Horizontal2, Horizontal3, Horizontal4};
 		
 		// simulation control values
 		public int  numPeople;			
@@ -173,7 +172,7 @@ public class Control {
 			
 			//sets text color
 			g.setColor(Color.BLACK);
-			g.setFont(new Font("Roboto", Font.BOLD, 25));
+			g.setFont(new Font("Roboto", Font.BOLD, 25));	
 			
 			g.drawString("Sprouts", 610, 50);
 			g.drawString("Scripps Medical", 5, 50);
@@ -182,9 +181,9 @@ public class Control {
 		}
 
 		public void checkWallCollision(Person p) {
-			Wall[] walls = {vWall1, block1, vWall2, block2, vWall3, block3, vWall4, block4};
-			Rectangle[] r = {vWall1.getBounds(), block1.getBounds(), vWall2.getBounds(), block2.getBounds(),
-					vWall3.getBounds(), block3.getBounds(), vWall4.getBounds(), block4.getBounds()};
+			Wall[] walls = {Vertical1, Horizontal1, Vertical2, Horizontal2, Vertical3, Horizontal3, Vertical4, Horizontal4};
+			Rectangle[] r = {Vertical1.getBounds(), Horizontal1.getBounds(), Vertical2.getBounds(), Horizontal2.getBounds(),
+					Vertical3.getBounds(), Horizontal3.getBounds(), Vertical4.getBounds(), Horizontal4.getBounds()};
 			Rectangle rect1 = new Rectangle(p.x,p.y, p.width, p.height);
 			for(int i = 0; i < walls.length;i++)
 			{
